@@ -1,6 +1,6 @@
 import { JOBS_ADD } from '../actionTypes'
 
-INITIAL_JOBS = [
+const INITIAL_JOBS = [
     {
         role: 'Frontend',
         company: 'Google Inc',

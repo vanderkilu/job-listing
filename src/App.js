@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+function App({jobs}) {
   return (
-    <p></p>
+    <p>{jobs[0].skill}</p>
   );
 }
 
