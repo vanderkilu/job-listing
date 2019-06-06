@@ -1,4 +1,7 @@
-import { JOBS_ADD } from '../actionTypes'
+import { JOBS_ADD, 
+         JOBS_LOADING, 
+         JOBS_FETCH_ERROR } 
+from '../actionTypes'
 
 const INITIAL_JOBS = [
     {
@@ -14,7 +17,7 @@ const applyJobsAdd = (state, action) => {
 }
 
 
-function jobsReducer(state = INITIAL_JOBS, action) {
+export function jobsReducer(state = INITIAL_JOBS, action) {
     switch(action.type) {
         case JOBS_ADD: {
             return applyJobsAdd(state, action)
@@ -24,4 +27,20 @@ function jobsReducer(state = INITIAL_JOBS, action) {
     }
 }
 
-export default jobsReducer
+export function jobsIsLoading(state=false, action) {
+    switch(action.type) {
+        case JOBS_LOADING: {
+            return action.isLoading
+        }
+        default: return state
+    }
+} 
+
+export function jobsFetchError(state=false, action) {
+    switch(action.type) {
+        case JOBS_FETCH_ERROR: {
+            return action.isError
+        }
+        default: return state
+    }
+}
