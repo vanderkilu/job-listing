@@ -1,5 +1,5 @@
-const JOB_FETCH = 'JOB_FETCH'
+const JOBS_ADD = 'JOBS_ADD'
 
 export {
-    JOB_FETCH,
+    JOBS_ADD,
 }
