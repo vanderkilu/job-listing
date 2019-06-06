@@ -5,7 +5,7 @@ import {jobsReducer,
 from './jobs'
 
 const rootReducer = combineReducers({
-    jobState: jobsReducer,
+    jobs: jobsReducer,
     jobsFetchError,
     jobsIsLoading
 })
