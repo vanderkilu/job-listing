@@ -6,7 +6,8 @@ function Welcome() {
     return (
         <div className="welcome">
             <img src={remote} className="welcome__img" alt="remote"/>
-            <p className="welcome__text">Remote jobs based on the Github  Jobs Api </p>
+            <h1 className="welcome__text">Curated jobs just for you </h1>
+            <p className="welcome__text-small">Jobs are based on the github jobs api</p>
         </div>
     )
 }

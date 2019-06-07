@@ -6,3 +6,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: whitesmoke;
 }
+
+:root {
+    --color-text-primary: #424242;
+    --color-text-secondary: #616161;
+}
