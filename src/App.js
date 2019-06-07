@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import Welcome from './components/Welcome'
 
 function App() {
   return (
-    <p></p>
+    <div className="wrapper">
+        <Welcome />
+    </div>
   );
 }
 

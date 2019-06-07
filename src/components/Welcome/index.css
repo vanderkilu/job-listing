@@ -1,0 +1,14 @@
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.welcome__img {
+    width: 80%;
+}
+.welcome__text {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
