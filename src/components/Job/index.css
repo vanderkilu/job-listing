@@ -8,7 +8,7 @@
     width: 100%;
 }
 .job > * {
-    margin: 1rem;
+    margin: 0.6rem;
 }
 .job__company {
     grid-column: 1 / -1;
@@ -17,7 +17,7 @@
 }
 .job__role {
     font-size: 1.5rem;
-    color: var(--color-text-tertiary);
+    color: #424242;
 }
 .job__time, .job__type {
     font-size: 1.2rem;
@@ -27,7 +27,7 @@
     justify-self: end;
 }
 .job__image {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 0.5rem;
 }

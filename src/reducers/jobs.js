@@ -3,17 +3,10 @@ import { JOBS_ADD,
          JOBS_FETCH_ERROR } 
 from '../actionTypes'
 
-const INITIAL_JOBS = [
-    {
-        role: 'Frontend',
-        company: 'Google Inc',
-        skill: 'Javascript',
-        date: '21st July, 2018'
-    }
-]
+const INITIAL_JOBS = []
 
 const applyJobsAdd = (state, action) => {
-    return [...state, action.jobs]
+    return  action.jobs
 }
 
 
@@ -27,7 +20,7 @@ export function jobsReducer(state = INITIAL_JOBS, action) {
     }
 }
 
-export function jobsIsLoading(state=false, action) {
+export function jobsIsLoadingReducer(state=false, action) {
     switch(action.type) {
         case JOBS_LOADING: {
             return action.isLoading
@@ -36,7 +29,7 @@ export function jobsIsLoading(state=false, action) {
     }
 } 
 
-export function jobsFetchError(state=false, action) {
+export function jobsFetchErrorReducer(state=false, action) {
     switch(action.type) {
         case JOBS_FETCH_ERROR: {
             return action.isError

@@ -2,7 +2,6 @@ import { JOBS_ADD,
          JOBS_FETCH_ERROR, 
          JOBS_LOADING
 } from '../actionTypes'
-import { jobsIsLoading } from '../reducers/jobs';
 
 function addJobs(jobs) {
     return {
@@ -25,7 +24,9 @@ function jobsFetchError(bool) {
 function fetchJobs(url) {
     return (dispatch) => {
         dispatch(jobsIsLoading(true))
-        fetch(url)
+        fetch(url,  {
+            headers: {
+          }})
         .then(response => {
             if (!response.ok) {
                 throw Error(response.statusText)

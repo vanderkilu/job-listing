@@ -1,18 +1,43 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './index.css'
 import Job from '../Job'
+import {fetchJobs} from '../../actions'
 
-function JobList() {
-    const jobs = [1,2,3,4,5]
-    const jobList = jobs.map(job => <Job key={job} /> )
-    return (
-        <div className="job-list">
-            <h3 className="job-list__text">Top Jobs</h3>
-            <div className="job-listing">
-                {jobList}
+class JobList extends React.Component {
+    componentDidMount() {
+        const corsUrl = 'https://cors-anywhere.herokuapp.com/'
+        const baseUrl = `${corsUrl}https://jobs.github.com/positions.json`
+        this.props.getJobs(baseUrl)
+    }
+    render() {
+        const jobList = this.props.jobs.map(job => <Job key={job.id} job={job} /> )
+        console.log(this.props.jobs)
+        return (
+            <div className="job-list">
+                <h3 className="job-list__text">Top Jobs</h3>
+                <div className="job-listing">
+                    {jobList}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+    
 }
 
-export default JobList
+const mapStateToProps = (state) => {
+    return {
+        jobs: state.jobs,
+        isJobsLoading: state.jobsIsLoading,
+        hasErrored: state.jobsFetchError
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getJobs: (url) => dispatch(fetchJobs(url))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(JobList)

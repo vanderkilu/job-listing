@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
 import {jobsReducer, 
-        jobsIsLoading, 
-        jobsFetchError } 
+        jobsIsLoadingReducer, 
+        jobsFetchErrorReducer } 
 from './jobs'
 
 const rootReducer = combineReducers({
     jobs: jobsReducer,
-    jobsFetchError,
-    jobsIsLoading
+    jobsFetchError: jobsFetchErrorReducer,
+    jobsIsLoading: jobsIsLoadingReducer
 })
 
 export default rootReducer
