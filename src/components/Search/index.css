@@ -23,7 +23,7 @@
 .search__input::placeholder {
     font-size: 1.4rem;
     color: var(--color-text-tertiary);
-    font-family: inherit;
+    font-family: 'Montserrat', sans-serif;
 }
 .btn {
     transform: translateX(-7rem);
