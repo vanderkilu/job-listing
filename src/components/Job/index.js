@@ -11,3 +11,5 @@ function Job() {
         </div>
     )
 }
+
+export default Job
