@@ -1,0 +1,16 @@
+.job-list {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10rem;
+}
+.job-list__text {
+    font-size: 2.5rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 5rem;
+}
+.job-listing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
