@@ -5,7 +5,10 @@
     margin-bottom: 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
+    width: 100%;
+}
+.job > * {
+    margin: 1rem;
 }
 .job__company {
     grid-column: 1 / -1;
@@ -19,6 +22,9 @@
 .job__time, .job__type {
     font-size: 1.2rem;
     color: var(--color-text-tertiary);
+}
+.job__image, .job__time {
+    justify-self: end;
 }
 .job__image {
     width: 4rem;
