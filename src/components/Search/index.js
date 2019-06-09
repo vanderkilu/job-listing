@@ -4,37 +4,54 @@ import searchIcon from './search.svg'
 import { connect } from 'react-redux'
 import {fetchJobs} from '../../actions'
 
-function Search({filterSearch}) {
-    const mapSearchArrToItems = (arr,type) => {
+class Search extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            langSearch: ['Javascript', 
+                        'Php',
+                        'Python', 
+                        'Rails', 
+                        'Linux', 
+                        'Erlang'
+                        ],
+            locationSearch:  ['San Francisco', 
+                              'New York', 
+                              'Austin', 
+                              'London', 
+                              'Europe'
+                            ] ,
+        }
+    }
+    mapSearchArrToItems(arr, type) {
         return arr.map(item => {
-            return <span className="top-search__item" 
-                    key={item}
-                    onClick={()=> { filterSearch(item, type) }}>
+            return <span className="top-search__item" key={item}
+                    onClick={()=> { this.props.filterSearch(item, type) }}>
                         {item}
                     </span>
         })
     }
-    const langSearch = ['Javascript', 'Php','Python', 'Rails', 'Linux', 'Erlang']
-    const locationSearch = ['San Francisco', 'New York', 'Austin', 'London', 'Europe']
-    const topSearchLang = mapSearchArrToItems(langSearch, 'lang')
-    const topLocationSearch = mapSearchArrToItems(locationSearch, 'location')
-    return (
-        <div className="search">
-            <form className="search__form">
-                <input className="search__input" placeholder="search by name or tag"/>
-                <button className="btn" type="submit">
-                    <img src={searchIcon}  alt="search icon" className="search__icon"/>
-                </button>
-            </form>
-            <div className="search__filters">
-                <h3 className="search__filters-text"> Trending Searches </h3>
-                <div className="top-search">
-                    {topSearchLang}
-                    {topLocationSearch}
+    render() {
+        const topSearchLang = this.mapSearchArrToItems(this.state.langSearch, 'lang')
+        const topLocationSearch = this.mapSearchArrToItems(this.state.locationSearch, 'location')
+        return (
+            <div className="search">
+                <form className="search__form">
+                    <input className="search__input" placeholder="search by name or tag"/>
+                    <button className="btn" type="submit">
+                        <img src={searchIcon}  alt="search icon" className="search__icon"/>
+                    </button>
+                </form>
+                <div className="search__filters">
+                    <h3 className="search__filters-text"> Trending Searches </h3>
+                    <div className="top-search">
+                        {topSearchLang}
+                        {topLocationSearch}
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
