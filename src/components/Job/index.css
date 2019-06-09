@@ -16,7 +16,7 @@
     font-size: 1.6rem;
     color: var(--color-text-secondary);
 }
-.job__role {
+.job__role, .job__location {
     font-size: 1.5rem;
     color: #424242;
 }
@@ -25,11 +25,6 @@
     color: var(--color-primary);
     font-weight: 600;
 }
-.job__image, .job__time {
+.job__location, .job__time {
     justify-self: end;
-}
-.job__image {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 0.5rem;
 }

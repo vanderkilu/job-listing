@@ -13,6 +13,7 @@ class JobList extends React.Component {
     }
     render() {
         const jobList = this.props.jobs.map(job => <Job key={job.id} job={job} /> )
+        console.log(this.props.jobs)
         const loader = this.props.isJobsLoading ? <Loader/> : null
         return (
             <div className="job-list">
