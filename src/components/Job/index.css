@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
+    box-shadow: var(--box-shadow);
 }
 .job > * {
     margin: 0.6rem;
@@ -21,7 +22,8 @@
 }
 .job__time, .job__type {
     font-size: 1.2rem;
-    color: var(--color-text-tertiary);
+    color: var(--color-primary);
+    font-weight: 600;
 }
 .job__image, .job__time {
     justify-self: end;
