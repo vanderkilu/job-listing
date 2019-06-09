@@ -15,7 +15,8 @@
     border-radius: 5px;
     width: 100%;
     box-shadow: var(--box-shadow);
-    font-size: inherit;
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
 }
 .search__input:focus {
     outline: none;

@@ -1,17 +1,23 @@
 import React from 'react'
 import './index.css'
 import searchIcon from './search.svg'
+import { connect } from 'react-redux'
+import {fetchJobs} from '../../actions'
 
-function Search() {
-    const mapSearchArrToItems = (arr) => {
-        return arr.map(lang => {
-            return <span className="top-search__item">{lang}</span>
+function Search({filterSearch}) {
+    const mapSearchArrToItems = (arr,type) => {
+        return arr.map(item => {
+            return <span className="top-search__item" 
+                    key={item}
+                    onClick={()=> { filterSearch(item, type) }}>
+                        {item}
+                    </span>
         })
     }
     const langSearch = ['Javascript', 'Php','Python', 'Rails', 'Linux', 'Erlang']
     const locationSearch = ['San Francisco', 'New York', 'Austin', 'London', 'Europe']
-    const topSearchLang = mapSearchArrToItems(langSearch)
-    const topLocationSearch = mapSearchArrToItems(locationSearch)
+    const topSearchLang = mapSearchArrToItems(langSearch, 'lang')
+    const topLocationSearch = mapSearchArrToItems(locationSearch, 'location')
     return (
         <div className="search">
             <form className="search__form">
@@ -31,4 +37,17 @@ function Search() {
     )
 }
 
-export default Search
+const mapDispatchToProps = (dispatch) => {
+    const corsUrl = 'https://cors-anywhere.herokuapp.com/'
+    const baseUrl = `${corsUrl}https://jobs.github.com/positions.json`
+    return {
+        filterSearch: (query, type) => {
+            const url = type === 'lang' ? 
+                    `${baseUrl}?description=${query}`
+                    :`${baseUrl}?location=${query}`
+            return dispatch(fetchJobs(url))
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Search)
