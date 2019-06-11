@@ -1,6 +1,7 @@
 import { JOBS_ADD, 
          JOBS_LOADING, 
-         JOBS_FETCH_ERROR } 
+         JOBS_FETCH_ERROR,
+         MORE_JOBS } 
 from '../actionTypes'
 
 const INITIAL_JOBS = []
@@ -8,12 +9,20 @@ const INITIAL_JOBS = []
 const applyJobsAdd = (state, action) => {
     return  action.jobs
 }
+const applyAddMoreJobs = (state, action) => {
+    return Object.assign({}, state, {
+        jobs: [...state.jobs, action.jobs]
+    })
+}
 
 
 export function jobsReducer(state = INITIAL_JOBS, action) {
     switch(action.type) {
         case JOBS_ADD: {
             return applyJobsAdd(state, action)
+        }
+        case MORE_JOBS: {
+            return applyAddMoreJobs(state, action)
         }
         default: return state
 

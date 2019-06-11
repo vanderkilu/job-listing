@@ -1,6 +1,7 @@
 import { JOBS_ADD, 
          JOBS_FETCH_ERROR, 
-         JOBS_LOADING
+         JOBS_LOADING,
+         MORE_JOBS
 } from '../actionTypes'
 
 function addJobs(jobs) {
@@ -21,7 +22,7 @@ function jobsFetchError(bool) {
         isError: bool
     }
 }
-function fetchJobs(url) {
+function getJobs(url, fn) {
     return (dispatch) => {
         dispatch(jobsIsLoading(true))
         fetch(url,  {
@@ -35,12 +36,25 @@ function fetchJobs(url) {
             return response
         })
         .then((response) => response.json())
-        .then(jobs => dispatch(addJobs(jobs)))
+        .then(jobs => dispatch(fn(jobs)))
         .catch(()=> dispatch(jobsFetchError(true)))
+    }
+}
+function fetchJobs(url) {
+   return getJobs(url, addJobs)
+}
+function fetchMoreJobs(url) {
+    return getJobs(url, addMoreJobs)
+}
+function addMoreJobs(jobs) {
+    return {
+        type: MORE_JOBS,
+        jobs
     }
 }
 
 
 export {
-    fetchJobs
+    fetchJobs,
+    fetchMoreJobs
 }
