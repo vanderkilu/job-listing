@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import './index.css'
 import Job from '../Job'
 import Loader from '../Loader'
-import {fetchJobs} from '../../actions'
+import {fetchJobs, fetchMoreJobs} from '../../actions'
 
 class JobList extends React.Component {
     componentDidMount() {
@@ -21,6 +21,7 @@ class JobList extends React.Component {
                 {loader}
                 <div className="job-listing">
                     {jobList}
+                    <button className="load-more">More Jobs</button>
                 </div>
             </div>
         )
@@ -38,7 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getJobs: (url) => dispatch(fetchJobs(url))
+        getJobs: (url) => dispatch(fetchJobs(url)),
+        getMoreJobs: (url) => dispatch(fetchMoreJobs(url))
     }
 }
 
