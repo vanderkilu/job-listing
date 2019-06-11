@@ -1,7 +1,8 @@
 import { JOBS_ADD, 
          JOBS_FETCH_ERROR, 
          JOBS_LOADING,
-         MORE_JOBS
+         MORE_JOBS,
+         CURRENT_FILTER
 } from '../actionTypes'
 
 function addJobs(jobs) {
@@ -52,9 +53,16 @@ function addMoreJobs(jobs) {
         jobs
     }
 }
+function setCurrentFilter(filter) {
+    return {
+        type: CURRENT_FILTER,
+        filter
+    }
+}
 
 
 export {
     fetchJobs,
-    fetchMoreJobs
+    fetchMoreJobs,
+    setCurrentFilter
 }

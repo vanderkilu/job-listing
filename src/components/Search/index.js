@@ -2,7 +2,8 @@ import React from 'react'
 import './index.css'
 import searchIcon from './search.svg'
 import { connect } from 'react-redux'
-import {fetchJobs} from '../../actions'
+import {fetchJobs,setCurrentFilter} from '../../actions'
+import { baseUrl } from '../../utils'
 
 class Search extends React.Component {
     constructor(props) {
@@ -74,19 +75,22 @@ class Search extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    const corsUrl = 'https://cors-anywhere.herokuapp.com/'
-    const baseUrl = `${corsUrl}https://jobs.github.com/positions.json`
     return {
         filterSearch: (query, type) => {
             const url = type === 'lang' ? 
                     `${baseUrl}?description=${query}`
                     :`${baseUrl}?location=${query}`
+            const payload = type === 'lang' ? {name: query, type: 'description'}
+                            : {name: query, type: 'location'}
+            dispatch(setCurrentFilter(payload))
             return dispatch(fetchJobs(url))
         },
         search: (query)=> {
             const url = `${baseUrl}?description=${query}`
+            const payload = {name: query, type: 'description'}
+            dispatch(setCurrentFilter(payload))
             return dispatch(fetchJobs(url))
-        }
+        },
     }
 }
 

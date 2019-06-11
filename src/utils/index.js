@@ -23,6 +23,10 @@ function formatTime(date) {
     return Math.floor(seconds) + " seconds";
 }
 
+const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/'
+const baseUrl = `${corsProxyUrl}https://jobs.github.com/positions.json`
+
 export {
-    formatTime
+    formatTime,
+    baseUrl
 }
