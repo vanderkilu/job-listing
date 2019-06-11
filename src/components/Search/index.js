@@ -11,16 +11,17 @@ class Search extends React.Component {
             langSearch: ['Javascript', 
                         'Php',
                         'Python', 
-                        'Rails', 
+                        'Docker', 
                         'Linux', 
                         'Erlang'
                         ],
             locationSearch:  ['San Francisco', 
                               'New York', 
-                              'Austin', 
-                              'London', 
-                              'Europe'
+                              'Austin',  
+                              'Europe',
+                              'Remote'
                             ] ,
+            query: ''
         }
     }
     mapSearchArrToItems(arr, type) {
@@ -31,13 +32,31 @@ class Search extends React.Component {
                     </span>
         })
     }
+    handleChange(e) {
+        this.setState({
+            query: e.target.value
+        })
+    }
+    handleSubmit(e) {
+        if(this.state.query)
+            this.props.search(this.state.query)
+        this.setState({
+            query: ' '
+        })
+        e.preventDefault()
+        
+    }
+
     render() {
         const topSearchLang = this.mapSearchArrToItems(this.state.langSearch, 'lang')
         const topLocationSearch = this.mapSearchArrToItems(this.state.locationSearch, 'location')
         return (
             <div className="search">
-                <form className="search__form">
-                    <input className="search__input" placeholder="search by name or tag"/>
+                <form className="search__form" onSubmit={(e)=> this.handleSubmit(e)}>
+                    <input className="search__input" 
+                           placeholder="search by job title, benefits, company"
+                           value={this.state.query}
+                           onChange= {(e)=> this.handleChange(e) }/>
                     <button className="btn" type="submit">
                         <img src={searchIcon}  alt="search icon" className="search__icon"/>
                     </button>
@@ -62,6 +81,10 @@ const mapDispatchToProps = (dispatch) => {
             const url = type === 'lang' ? 
                     `${baseUrl}?description=${query}`
                     :`${baseUrl}?location=${query}`
+            return dispatch(fetchJobs(url))
+        },
+        search: (query)=> {
+            const url = `${baseUrl}?description=${query}`
             return dispatch(fetchJobs(url))
         }
     }

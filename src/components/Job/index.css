@@ -9,14 +9,19 @@
     box-shadow: var(--box-shadow);
 }
 .job > * {
-    margin: 0.6rem;
+    margin: 0.8rem;
 }
 .job__company {
     grid-column: 1 / -1;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--color-text-secondary);
 }
-.job__role, .job__location {
+.job__location {
+    font-size: 1.5rem;
+    color: #424242;
+}
+.job__role {
+    font-weight: 600;
     font-size: 1.5rem;
     color: #424242;
 }
