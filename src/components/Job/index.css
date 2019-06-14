@@ -34,3 +34,6 @@
 .job__location, .job__time {
     justify-self: end;
 }
+.hot {
+    background-color: #ffcdd2;
+}

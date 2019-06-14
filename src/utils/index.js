@@ -23,10 +23,18 @@ function formatTime(date) {
     return Math.floor(seconds) + " seconds";
 }
 
+function isOld(date) {
+  const oneDay = 24 * 60 * 60 * 1000
+  const createdAt = new Date(date)
+  const now = Date.now()
+  return (now - createdAt) > oneDay 
+}
+
 const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/'
 const baseUrl = `${corsProxyUrl}https://jobs.github.com/positions.json`
 
 export {
     formatTime,
-    baseUrl
+    baseUrl,
+    isOld
 }
