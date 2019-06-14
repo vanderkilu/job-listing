@@ -42,7 +42,7 @@ class Search extends React.Component {
         if(this.state.query)
             this.props.search(this.state.query)
         this.setState({
-            query: ' '
+            query: ''
         })
         e.preventDefault()
         
