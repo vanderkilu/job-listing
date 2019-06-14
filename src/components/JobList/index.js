@@ -27,7 +27,7 @@ class JobList extends React.Component {
     }
     render() {
         const jobs = this.props.jobs
-        const jobList = jobs.map(job => <Job key={job.id} job={job} /> )
+        const jobList = jobs.map(job => <Job key={job.id} job={job} />)
         const loader = this.props.isJobsLoading ? <Loader/> : null
         const canLoadMore = (jobs.length > 0) && (jobs.length % 50 === 0)
 

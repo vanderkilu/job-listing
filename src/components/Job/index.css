@@ -7,6 +7,7 @@
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
     box-shadow: var(--box-shadow);
+    cursor: pointer;
 }
 .job > * {
     margin: 0.8rem;
