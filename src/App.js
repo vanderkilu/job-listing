@@ -1,15 +1,12 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
 import './App.css';
-import Welcome from './components/Welcome'
-import Search from './components/Search'
-import JobList from './components/JobList'
+import Home from './components/Home'
 
 function App() {
   return (
     <div className="wrapper">
-        <Welcome />
-        <Search/>
-        <JobList/>
+       <Route exact path="/" component={Home}/>
     </div>
   );
 }
