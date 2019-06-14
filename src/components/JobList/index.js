@@ -31,6 +31,9 @@ class JobList extends React.Component {
         const loader = this.props.isJobsLoading ? <Loader/> : null
         const canLoadMore = (jobs.length > 0) && (jobs.length % 50 === 0)
 
+        console.log(jobs)
+
+
         return (
             <div className="job-list">
                 <h3 className="job-list__text">Top Jobs</h3>

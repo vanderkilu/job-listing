@@ -2,7 +2,9 @@ import { JOBS_ADD,
          JOBS_LOADING, 
          JOBS_FETCH_ERROR,
          MORE_JOBS,
-        CURRENT_FILTER } 
+         CURRENT_FILTER,
+         CURRENT_JOB
+         } 
 from '../actionTypes'
 
 const INITIAL_JOBS = []
@@ -50,6 +52,15 @@ export function setCurrentFilterReducer(state={name: '', type: ''}, action) {
     switch(action.type) {
         case CURRENT_FILTER: {
             return action.filter
+        }
+        default: return state
+    }
+}
+
+export function getJobReducer(state={}, action) {
+    switch(action.type) {
+        case CURRENT_JOB: {
+            return action.job
         }
         default: return state
     }
