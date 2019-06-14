@@ -30,13 +30,14 @@ class JobList extends React.Component {
         const jobList = jobs.map(job => <Job key={job.id} job={job} />)
         const loader = this.props.isJobsLoading ? <Loader/> : null
         const canLoadMore = (jobs.length > 0) && (jobs.length % 50 === 0)
+        const name = this.props.currentFilter.name 
+        const title = name ? `(${name})`: ''
 
         console.log(jobs)
 
-
         return (
             <div className="job-list">
-                <h3 className="job-list__text">Top Jobs</h3>
+                <h3 className="job-list__text"> Top Jobs{title} </h3>
                 {loader}
                 <div className="job-listing">
                     {jobList}
