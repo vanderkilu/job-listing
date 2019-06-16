@@ -23,17 +23,18 @@ function formatTime(date) {
     return Math.floor(seconds) + " seconds";
 }
 
+function extractLink(input) {
+  const expression = /<a [^>]+>([^<]+)<\/a>/i;
+  const match = expression.exec(input);
+  if (match) return match[1]
+  return ''
+}
+
 function isOld(date) {
   const oneDay = 24 * 60 * 60 * 1000
   const createdAt = new Date(date)
   const now = Date.now()
   return (now - createdAt) > oneDay 
-}
-
-function extractLink(str) {
-  let input = str || ''
-  const expression = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
-  return input.match(expression);
 }
 const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/'
 const baseUrl = `${corsProxyUrl}https://jobs.github.com/positions.json`
