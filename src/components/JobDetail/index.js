@@ -2,6 +2,7 @@ import React from 'react'
 import './index.css'
 import {connect} from 'react-redux'
 import {fetchJob} from '../../actions'
+import {extractLink} from '../../utils'
 
 
 class JobDetail extends React.Component {
@@ -12,13 +13,17 @@ class JobDetail extends React.Component {
         this.props.getJob(id, url)
     }
     render() {
-        console.log(this.props.job)
-        const job = this.props.job
+        const job = this.props.job 
+        const link = job.how_to_apply || ''
+
         return (
             <div className="job-detail">
                 <h3 className="job-detail__role">{job.title}</h3>
                 <p className="job-detail__company">{job.company}</p>
-                <a className="btn" href="" target="_blank"> Apply for this job </a>
+                <a className="btn" href={extractLink(link)} 
+                   target="_blank" rel="noopener noreferrer"> 
+                    Apply for this job 
+                </a>
                 <h3 className="job-detail__text">Description</h3>
                 <div className="job-detail__description">
                     <div className="description" 
@@ -26,7 +31,10 @@ class JobDetail extends React.Component {
                     />
                 </div>
                 <div className="find-more">
-                    <a className="btn-line" href={job.company_url} target="_blank"> to company site &rarr; </a>
+                    <a className="btn-line" 
+                    href={job.company_url} 
+                    target="_blank"
+                    rel="noopener noreferrer"> to company site &rarr; </a>
                 </div>
                 
             </div>

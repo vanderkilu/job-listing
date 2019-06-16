@@ -30,11 +30,17 @@ function isOld(date) {
   return (now - createdAt) > oneDay 
 }
 
+function extractLink(str) {
+  let input = str || ''
+  const expression = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
+  return input.match(expression);
+}
 const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/'
 const baseUrl = `${corsProxyUrl}https://jobs.github.com/positions.json`
 
 export {
     formatTime,
     baseUrl,
-    isOld
+    isOld,
+    extractLink
 }
