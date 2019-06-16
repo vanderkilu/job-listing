@@ -2,7 +2,7 @@ import React from 'react'
 import './index.css'
 import {connect} from 'react-redux'
 import {fetchJob} from '../../actions'
-import {extractLink} from '../../utils'
+
 
 class JobDetail extends React.Component {
     componentDidMount() {
@@ -13,13 +13,12 @@ class JobDetail extends React.Component {
     }
     render() {
         const job = this.props.job 
-        const link = job.how_to_apply || ''
-        
+
         return (
             <div className="job-detail">
                 <h3 className="job-detail__role">{job.title}</h3>
                 <p className="job-detail__company">{job.company}</p>
-                <a className="btn" href={extractLink(link)}
+                <a className="btn" href={job.company_url}
                    target="_blank" rel="noopener noreferrer"> 
                     Apply for this job 
                 </a>
