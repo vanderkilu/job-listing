@@ -1,0 +1,54 @@
+.job-detail {
+    width: 90%;
+    margin: 5rem auto;
+    padding: 3rem 4rem;
+    background-color: #fafafa;
+}
+
+
+.job-detail__role {
+    font-size: 2.5rem;
+    color: var(--color-text-secondary);
+}
+.job-detail__company {
+    font-size: 1.4rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: 4rem;
+}
+.job-detail__text {
+    font-size: 2.5rem;
+    color: var(--color-text-secondary);
+    margin-top: 10rem;
+}
+.description {
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+.btn {
+    text-decoration: none;
+    padding: 1.5rem 2rem;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1.4rem;
+    border-radius: 0.4rem;
+}
+.job-detail__description {
+    margin-bottom: 5rem;
+}
+.find-more {
+    text-align: center;
+}
+.btn-line {
+    color: var(--color-text-secondary);
+    text-align: center;
+    font-size: 1.8rem;
+    text-decoration-line: underline;
+    text-underline-position: under;
+    text-decoration-color: var(--color-primary);
+    transition: all 0.2s;
+
+}
+.btn-line:hover {
+    color: var(--color-primary);
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 import {connect} from 'react-redux'
 import {fetchJob} from '../../actions'
 
@@ -12,9 +13,22 @@ class JobDetail extends React.Component {
     }
     render() {
         console.log(this.props.job)
+        const job = this.props.job
         return (
             <div className="job-detail">
-                <p>Job Detail</p>
+                <h3 className="job-detail__role">{job.title}</h3>
+                <p className="job-detail__company">{job.company}</p>
+                <a className="btn" href="" target="_blank"> Apply for this job </a>
+                <h3 className="job-detail__text">Description</h3>
+                <div className="job-detail__description">
+                    <div className="description" 
+                         dangerouslySetInnerHTML={{__html:job.description}} 
+                    />
+                </div>
+                <div className="find-more">
+                    <a className="btn-line" href={job.company_url} target="_blank"> to company site &rarr; </a>
+                </div>
+                
             </div>
         )
     } 
