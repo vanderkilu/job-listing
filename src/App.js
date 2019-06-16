@@ -5,12 +5,13 @@ import Header from './components/Header'
 import Home from './components/Home'
 import JobDetail from './components/JobDetail'
 
+
 function App() {
   return (
     <div className="wrapper">
-       <Header/>
-       <Route exact path="/" component={Home}/>
-       <Route exact path="/jobs/:id" component={JobDetail}/>
+        <Header/>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/jobs/:id" component={JobDetail}/>
     </div>
   );
 }
