@@ -1,0 +1,8 @@
+.header__logo {
+    font-size: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+    letter-spacing: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 8px 16px rgba(50,48,58,.25);
+}
