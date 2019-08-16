@@ -57,7 +57,7 @@ class Search extends React.Component {
                     <input className="search__input" 
                            placeholder="search by job title, benefits, company"
                            value={this.state.query}
-                           onChange= {(e)=> this.handleChange(e) }/>
+                           onChange= {(e)=> this.handleChange(e) } required/>
                     <button className="btn" type="submit">
                         <img src={searchIcon}  alt="search icon" className="search__icon"/>
                     </button>
