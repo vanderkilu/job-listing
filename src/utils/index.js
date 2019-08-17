@@ -36,8 +36,8 @@ function isOld(date) {
   const now = Date.now()
   return (now - createdAt) > oneDay 
 }
-// const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/'
-const baseUrl = `https://jobs.github.com/positions.json`
+const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/'
+const baseUrl = `${corsProxyUrl}https://jobs.github.com/positions.json`
 
 export {
     formatTime,
