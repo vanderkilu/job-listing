@@ -1,4 +1,4 @@
-# GotTrivia
+# Job Listing
 a job listing based on the github jobs api. 
 Built with react, redux, redux thunk, react router
 
