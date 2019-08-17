@@ -52,3 +52,14 @@
 .btn-line:hover {
     color: var(--color-primary);
 }
+
+@media only screen and (max-width: 900px) { 
+    .job-detail__role {
+        font-size: 1.8rem;
+        color: var(--color-text-secondary);
+    }
+    .job-detail {
+        padding: 2rem;
+    }
+    
+}

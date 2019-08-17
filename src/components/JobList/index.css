@@ -28,3 +28,10 @@
 .load-more:focus {
     outline: none;
 }
+
+@media only screen and (max-width: 900px) { 
+    .job-list {
+        width: 100%;
+        margin-top: 8rem;
+    }
+}

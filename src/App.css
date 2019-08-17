@@ -3,3 +3,10 @@
     margin: 1rem auto;
     margin-bottom: 5rem;
 }
+
+@media only screen and (max-width: 900px) {
+    .wrapper {
+        width: 90%;
+        /* overflow: hidden; */
+    }
+}

@@ -37,3 +37,15 @@
 .hot {
     background-color: #ffcdd2;
 }
+
+@media only screen and (max-width: 900px) { 
+    .job__role {
+        font-weight: 600;
+        font-size: 1.4rem;
+        color: #424242;
+    }
+    .job {
+        width: 80%;
+        padding: 2rem;
+    }
+}
